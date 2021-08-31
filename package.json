@@ -41,7 +41,7 @@
     "lint": "ng lint",
     "package": "electron-forge package",
     "make": "electron-forge make",
-    "publish": "electron-forge publish",
+    "publish": "electron-forge publish"
   },
   "dependencies": {
     "@angular/common": "12.1.2",
