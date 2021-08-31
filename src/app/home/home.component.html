@@ -2,6 +2,8 @@
   <h1 class="title">
     {{ 'PAGES.HOME.TITLE' | translate }}
   </h1>
-
+  <p *ngFor="let port of ports" style="color: white">
+    {{stringify(port)}}
+  </p>
   <a routerLink="/detail">{{ 'PAGES.HOME.GO_TO_DETAIL' | translate }}</a>
 </div>

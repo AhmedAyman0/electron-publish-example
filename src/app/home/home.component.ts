@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ElectronService } from '../core/services/electron/electron.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +8,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  ports
+  constructor(private router: Router, private electronService:ElectronService) { }
 
-  constructor(private router: Router) { }
-
-  ngOnInit(): void {
+  async ngOnInit() {
     console.log('HomeComponent INIT');
+    this.ports = await this.electronService.driveList.list();
+    console.log("ports", this.ports)
   }
 
+  stringify(port) {
+    return JSON.stringify(port, null, 4)
+  }
 }
