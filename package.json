@@ -40,7 +40,8 @@
     "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
     "lint": "ng lint",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
   },
   "dependencies": {
     "@angular/common": "12.1.2",
@@ -73,6 +74,7 @@
     "@electron-forge/maker-rpm": "6.0.0-beta.60",
     "@electron-forge/maker-squirrel": "6.0.0-beta.60",
     "@electron-forge/maker-zip": "6.0.0-beta.60",
+    "@electron-forge/publisher-github": "6.0.0-beta.60",
     "@ngx-translate/core": "13.0.0",
     "@ngx-translate/http-loader": "6.0.0",
     "@types/jasmine": "3.8.1",
@@ -115,6 +117,17 @@
     "chrome 91"
   ],
   "config": {
+    "publishers": [
+      {
+        "name": "Ahmed Ayman",
+        "config": {
+          "repository": {
+            "owner": "AhmedAyman0",
+            "name": "electron-publish-example"
+          }
+        }
+      }
+    ],
     "forge": {
       "packagerConfig": {},
       "makers": [
