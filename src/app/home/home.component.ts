@@ -8,16 +8,16 @@ import { ElectronService } from '../core/services/electron/electron.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  ports
-  constructor(private router: Router, private electronService:ElectronService) { }
+  ports;
+  constructor(private router: Router, private electronService: ElectronService) { }
 
   async ngOnInit() {
     console.log('HomeComponent INIT');
     this.ports = await this.electronService.driveList.list();
-    console.log("ports", this.ports)
+    console.log('ports', this.ports);
   }
 
   stringify(port) {
-    return JSON.stringify(port, null, 4)
+    return JSON.stringify(port, null, 4);
   }
 }
