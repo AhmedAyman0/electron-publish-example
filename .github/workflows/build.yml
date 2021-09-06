@@ -67,4 +67,4 @@ jobs:
         git clone https://github.com/AhmedAyman0/electron-releases
         winget install gh
         cd ./electron-releases
-        gh release create v1.0.0 *.*
+        gh release upload v1.0.0 *.*  --clobber
