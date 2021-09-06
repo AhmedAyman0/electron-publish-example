@@ -46,7 +46,7 @@ jobs:
         git clone https://github.com/AhmedAyman0/electron-releases
         brew install gh
         cd ./electron-releases
-        gh release create v1.0.0 ../build/*.*
+        gh release upload v1.0.0 *.*  --clobber
 
   build_on_win:
     needs: build_on_mac
