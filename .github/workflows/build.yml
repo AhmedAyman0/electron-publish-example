@@ -12,7 +12,7 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: build
-      run: npm run build
+      run: npm run publish
     - name: debloy
       env:
         GITHUB_TOKEN: "${{ secrets.REPO_TOKEN }}"
@@ -22,9 +22,8 @@ jobs:
         echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
         sudo apt update
         sudo apt install gh
-        ls
         cd ./electron-releases
-        gh release create v1.0.0 ../build/*.*
+        gh release create v1.0.0 ../release/*.*
 
 
 
@@ -39,7 +38,7 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: build
-      run: npm run build
+      run: npm run publish
     - name: debloy
       env:
         GITHUB_TOKEN: "${{ secrets.REPO_TOKEN }}"
@@ -47,7 +46,7 @@ jobs:
         git clone https://github.com/AhmedAyman0/electron-releases
         brew install gh
         cd ./electron-releases
-        gh release upload v1.0.0 ../build/*.*  --clobber
+        gh release upload v1.0.0 ../release/*.*  --clobber
 
   build_on_win:
     needs: build_on_mac
@@ -60,7 +59,7 @@ jobs:
     - name: install dependencies
       run: npm install
     - name: build
-      run: npm run build
+      run: npm run publish
     - name: debloy
       env:
         GITHUB_TOKEN: "${{ secrets.REPO_TOKEN }}"
@@ -68,4 +67,4 @@ jobs:
         git clone https://github.com/AhmedAyman0/electron-releases
         winget install gh
         cd ./electron-releases
-        gh release upload v1.0.0 ../build/*.*  --clobber
+        gh release upload v1.0.0 ../release/*.*  --clobber
