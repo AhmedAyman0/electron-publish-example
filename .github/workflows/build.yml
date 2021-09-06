@@ -16,7 +16,7 @@ jobs:
     - name: debloy
     - env:
       GITHUB_TOKEN: "${{ secrets.REPO_TOKEN }}"
-    - run: ./scripts/script1.sh
+    run: ./scripts/script1.sh
 
 
   build_on_mac:
