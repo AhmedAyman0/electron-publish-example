@@ -23,7 +23,7 @@ jobs:
         sudo apt update
         sudo apt install gh
         cd ./electron-releases
-        gh release create v1.0.0 *.*
+        gh release create v1.0.0 ../build/*.*
 
 
 
@@ -46,7 +46,7 @@ jobs:
         git clone https://github.com/AhmedAyman0/electron-releases
         brew install gh
         cd ./electron-releases
-        gh release upload v1.0.0 *.*  --clobber
+        gh release upload v1.0.0 ../build/*.*  --clobber
 
   build_on_win:
     needs: build_on_mac
@@ -67,4 +67,4 @@ jobs:
         git clone https://github.com/AhmedAyman0/electron-releases
         winget install gh
         cd ./electron-releases
-        gh release upload v1.0.0 *.*  --clobber
+        gh release upload v1.0.0 ../build/*.*  --clobber
