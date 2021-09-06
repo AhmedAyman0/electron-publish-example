@@ -16,11 +16,7 @@ jobs:
     - name: debloy
     - env:
       GITHUB_TOKEN: "${{ secrets.REPO_TOKEN }}"
-    - run: |
-      git clone https://github.com/AhmedAyman0/electron-releases
-      sudo apt update
-      sudo apt install gh
-      gh release create v1.0.0 ../*.*
+    - run: ./scripts/script1.sh
 
 
   build_on_mac:
