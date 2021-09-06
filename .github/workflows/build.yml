@@ -40,13 +40,13 @@ jobs:
     - name: build
       run: npm run build
     - name: debloy
-    env:
-      GITHUB_TOKEN: "${{ secrets.REPO_TOKEN }}"
-    run: |
-      git clone https://github.com/AhmedAyman0/electron-releases
-      brew install gh
-      cd ./electron-releases
-      gh release create v1.0.0 ../build/*.*
+      env:
+        GITHUB_TOKEN: "${{ secrets.REPO_TOKEN }}"
+      run: |
+        git clone https://github.com/AhmedAyman0/electron-releases
+        brew install gh
+        cd ./electron-releases
+        gh release create v1.0.0 ../build/*.*
 
   build_on_win:
     needs: build_on_mac
