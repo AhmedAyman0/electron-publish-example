@@ -68,3 +68,4 @@ jobs:
         winget install gh
         cd ./electron-releases
         gh release upload v1.0.0 ../release/*.*  --clobber
+      shell: bash
